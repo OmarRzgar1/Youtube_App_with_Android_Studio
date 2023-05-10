@@ -1,0 +1,71 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    compileSdk 30
+
+    defaultConfig {
+        applicationId "com.developeralamin.youtuber"
+        minSdk 30
+        targetSdk 30
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig getSigningConfig()
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    def appName = "Youtubers"
+                    if (outputFileName != null && outputFileName.endsWith('.apk')) {
+                        outputFileName = appName + " " + defaultConfig.versionName + ".apk"
+                    }
+                }
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+/* IMPORTANT :
+ * Be careful when update dependencies, different version library may caused error */
+dependencies {
+    implementation files('libs/YouTubeAndroidPlayerApi.jar')
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
+    implementation 'androidx.vectordrawable:vectordrawable-animated:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+    // firebase library
+    implementation platform('com.google.firebase:firebase-bom:26.3.0')
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.google.firebase:firebase-config'
+    implementation 'com.google.firebase:firebase-ads'
+    implementation 'com.google.android.ads.consent:consent-library:1.0.8'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.2.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.2.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.6.0'
+
+    implementation 'com.github.bumptech.glide:glide:4.1.1'
+
+    implementation 'androidx.room:room-runtime:2.0.0'
+    annotationProcessor 'androidx.room:room-compiler:2.0.0'
+
+    implementation 'com.balysv:material-ripple:1.0.2'
+}
+
+apply plugin: 'com.google.gms.google-services'

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultsMap>
+
+    <!-- Your Channel ID -->
+    <entry>
+        <key>channel_id</key>
+        <value>UCTH6OW7ZlH7LfKJtcWMOGAg</value>
+    </entry>
+
+    <!-- Your Playlist ID -->
+    <entry>
+        <key>playlist_id</key>
+        <value>PLkbhi9nuIvX61m2_oHVDjAMz0j-8UbE3U</value>
+    </entry>
+
+    <!-- App Version Config, don't change code below -->
+    <entry>
+        <key>app_version</key>
+        <value>0</value>
+    </entry>
+
+    <entry>
+        <key>force_update</key>
+        <value>false</value>
+    </entry>
+
+</defaultsMap>
